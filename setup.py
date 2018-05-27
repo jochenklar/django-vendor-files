@@ -1,6 +1,6 @@
 import re
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open('vendor_files/__init__.py') as f:
     metadata = dict(re.findall(r'__(.*)__ = [\']([^\']*)[\']', f.read()))
@@ -31,5 +31,5 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6'
     ],
-    packages=['vendor_files']
+    packages=find_packages()
 )
