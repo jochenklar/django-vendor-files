@@ -16,6 +16,7 @@ setup(
     url='https://github.com/aipescience/django-vendor-files',
     description=u'A small extension to download css and js vendor files from CDNs and host them locally.',
     long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     install_requires=[
         'Django>=1.11',
         'requests'

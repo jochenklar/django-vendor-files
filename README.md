@@ -19,6 +19,15 @@ INSTALLED_APPS = (
 )
 ```
 
+Put the `vendor` directory in `STATICFILES_DIRS` in your Django settings:
+
+```
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'vendor/'),
+    ...
+)
+```
+
 Add a `VENDOR` setting to your Django settings, and add your vendor files with URL and SNI, e.g.:
 
 ```python
@@ -49,3 +58,32 @@ VENDOR = {
     }
 }
 ```
+
+Usage
+-----
+
+Put `{% load vendor_tags %}` at the top of your Django template and the vendor tag , e.g.: `{% vendor 'jquery' %}`, somewhere in your HTML:
+
+```html
+{% load staticfiles %}
+{% load vendor_tags %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ request.site.name }}</title>
+        ...
+        {% vendor 'jquery' %}
+        {% vendor 'bootstrap' %}
+    </head>
+```
+
+ Then, you have 2 options:
+
+1) To use a CDN, put `VENDOR_CDN = True` in your Django settings and the vendor tag will be replaced by a `<link>` or `<script>` tag using the URLs in the settings.
+
+2) To use a local copy, put `VENDOR_CDN = False` (or nothing at all) in your Django settings and the vendor tag will be replaced by a `<link>` or `<script>` tag using your `STATIC_PATH`. The files can be downloaded:
+
+    ```
+    python ./manage.py download_vendor_files
+    ```
