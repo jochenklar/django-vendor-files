@@ -10,7 +10,7 @@ Install using pip:
 pip install django-vendor-files
 ```
 
-Add `download_vendor_files` to `INSTALLED_APPS` in your Django settings:
+Add `vendor_files` to `INSTALLED_APPS` in your Django settings:
 
 ```python
 INSTALLED_APPS = (
