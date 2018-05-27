@@ -1,0 +1,11 @@
+*-
+*~
+*.pyc
+*.swp
+.DS_Store
+
+env*
+
+build
+dist
+*.egg-info
