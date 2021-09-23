@@ -2,7 +2,7 @@ import base64
 import hashlib
 import os
 
-import requests
+import requests # noqa
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -28,7 +28,9 @@ class Command(BaseCommand):
                             pass
 
                         # get the full url of the file
-                        url = requests.compat.urljoin(vendor_conf['url'], file['path'])
+                        # url = requests.compat.urljoin(vendor_conf['url'], file['path'])
+                        # fix incorrect url join
+                        url = f"{vendor_conf['url']}/{file['path']}"
 
                         print('%s -> %s' % (url, file_name))
 
