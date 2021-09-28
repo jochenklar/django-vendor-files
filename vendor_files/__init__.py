@@ -1,5 +1,5 @@
 __title__ = 'django-vendor-files'
-__version__ = '0.1.1'
+__version__ = '0.2'
 __author__ = 'Jochen Klar'
 __email__ = 'jklar@aip.de'
 __license__ = 'Apache-2.0'
