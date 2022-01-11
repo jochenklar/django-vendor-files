@@ -37,17 +37,17 @@ Add a `VENDOR` setting to your Django settings, and add your vendor files with U
 ```python
 VENDOR = {
     'jquery': {
-        'url': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0', # Not use '/' at end!
+        'url': 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/',
         'js': [
             {
-                # finnaly url will be: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
+                # final url will be: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
                 'path': 'jquery.min.js', 
                 'sri': 'sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==',
             }
         ]
     },
     'bootstrap': {
-        'url': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7',
+        'url': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/',
         'js': [
             {
                 'path': 'js/bootstrap.min.js',
@@ -92,12 +92,9 @@ Extended tags, extract only js or css (can be usefull example for [django-compre
 {% vendor 'jquery' 'css' %}
 # or you can use
 {% vendor_css 'jquery' %}
-
-
 ```
 
-
- Then, you have 2 options:
+Then, you have 2 options:
 
 1) To use a CDN, put `VENDOR_CDN = True` in your Django settings and the vendor tag will be replaced by a `<link>` or `<script>` tag using the URLs in the settings.
 

@@ -18,7 +18,7 @@ def vendor(vendor_key, only=None):
             for file in vendor_config['js']:
                 if hasattr(settings, 'VENDOR_CDN') and settings.VENDOR_CDN:
                     tag = '<script src="%(url)s/%(path)s" integrity="%(sri)s" crossorigin="anonymous"></script>' % {
-                        'url': vendor_config['url'],
+                        'url': vendor_config['url'].rstrip('/'),
                         'path': file['path'],
                         'sri': file['sri'] if 'sri' in file else ''
                     }
@@ -36,7 +36,7 @@ def vendor(vendor_key, only=None):
             for file in vendor_config['css']:
                 if hasattr(settings, 'VENDOR_CDN') and settings.VENDOR_CDN:
                     tag = '<link rel="stylesheet" href="%(url)s/%(path)s" integrity="%(sri)s" crossorigin="anonymous" />' % { # noqa
-                        'url': vendor_config['url'],
+                        'url': vendor_config['url'].rstrip('/'),
                         'path': file['path'],
                         'sri': file['sri'] if 'sri' in file else ''
                     }
